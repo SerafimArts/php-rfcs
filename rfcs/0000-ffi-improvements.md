@@ -28,7 +28,7 @@ string, and second of the physical file. But both approaches impose a number
 of limitations.
 
 In the case of `FFI::cdef()`:
-- **CAN** specify the library file (`* .so`,` * .dll`, etc) from the PHP code.
+- **CAN** specify the library file (`*.so`, `*.dll`, etc) from the PHP code.
 - **CANNOT** specify "scope" from PHP code.
 - **CANNOT** declare `FFI_LIB` define to specify the library file from the header C code.
 - **CANNOT** declare `FFI_SCOPE` define from C header code.
