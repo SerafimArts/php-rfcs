@@ -51,7 +51,7 @@ It is proposed to solve these problems.
 - Add support for `FFI_CWD` define to specify the libraries working directory.
 
 The follow header code should work, as in the case of loading from using 
-`FFI::load ()`, and using `FFI::cdef ()` methods:
+`FFI::load()`, and using `FFI::cdef()` methods:
 
 ```c
 #define FFI_LIB "../bin/example.so"
@@ -79,7 +79,7 @@ FFI::cdef(string $code = '', string $lib = null);
 ```
 
 > Please note that for backward compatibility, allow option with passing a 
-> string as the second argument to the `FFI :: cdef ()` method.
+> string as the second argument to the `FFI::cdef()` method.
 
 Options may contain the following keys to specify libraries loading parameters:
 
@@ -104,9 +104,9 @@ must to be ignored.
 ### CWD And Multithreading Environment (ZTS)
 
 Specifying the working directory of libraries, for example via 
-`BOOL SetDllDirectoryA(LPCSTR lpPathName)`, is a global operation that affects 
-all threads. However, using mutexes for downloads in a ZTS environment should 
-solve this problem.
+`BOOL SetDllDirectoryA(LPCSTR lpPathName)` (kernel32.dll), is a global operation 
+that affects all threads. However, using mutexes for downloads in a ZTS 
+environment should solve this problem.
 
 Since libraries in the working environment are mostly loaded through 
 preloading, after loading PHP extensions, waiting for loading in another thread 
