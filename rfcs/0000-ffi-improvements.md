@@ -2,7 +2,7 @@
  * Date: 2020-07-01
  * Author: Kirill Nesmeyanov <nesk@xakep.ru>
  * Proposed Version: PHP 8.0
- * RFC PR: [php/php-rfcs#0003](https://github.com/php/php-rfcs/pull/3)
+ * RFC PR: [php/php-rfcs#0003](https://github.com/SerafimArts/php-rfcs/blob/ffi-improvements/rfcs/0000-ffi-improvements.md)
 
 ## Introduction
 
@@ -19,11 +19,11 @@ libraries are loaded via FFI in the PHP ZTS working environment.
 
 ### API Inconsistency
 
-Two static methods are used to load libraries:
+The second problem is slight inconsistencies in the behavior of the methods:
 - `FFI::cdef(string $code = '', string $lib = null);`
 - `FFI::load(string $filename);`
 
-Technically they are similar: The first loads the C header files from a PHP 
+Technically they are similar. The first loads the C header files from a PHP 
 string, and second of the physical file. But both approaches impose a number 
 of limitations.
 
@@ -48,15 +48,15 @@ It is proposed to solve these problems.
 - Add support for `FFI_LIB` and` FFI_SCOPE` defines in each of the methods 
 (i.e. `FFI::load()` and `FFI::cdef ()`).
 
-- Add support for `FFI_LD` define to specify the libraries working directory.
+- Add support for `FFI_LIB_DIR` define to specify the libraries working directory.
 
 The follow header code should work, as in the case of loading from using 
 `FFI::load()`, and using `FFI::cdef()` methods:
 
 ```c
-#define FFI_SCOPE "example"
-#define FFI_LIB   "../bin/example.so"
-#define FFI_LD    "../bin"
+#define FFI_SCOPE   "example"
+#define FFI_LIB     "../bin/example.so"
+#define FFI_LIB_DIR "../bin"
 
 // c-headers code
 // ...
@@ -140,6 +140,11 @@ The features discussed in the following are not part of this proposal.
 
 Three votes expected:
 
-- Add support for `FFI_LD` define: Simple yes/no vote.
-- Add support for defines in all methods of loading defines: Simple yes/no vote.
-- Add options support: Simple yes/no vote.
+- Add support for `FFI_LIB_DIR` directive: 
+    - Simple yes/no vote.
+
+- Add support for defines in all methods of loading defines: 
+    - Simple yes/no vote.
+
+- Add options support: 
+    - Simple yes/no vote.
