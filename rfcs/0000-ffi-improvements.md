@@ -48,15 +48,15 @@ It is proposed to solve these problems.
 - Add support for `FFI_LIB` and` FFI_SCOPE` defines in each of the methods 
 (i.e. `FFI::load()` and `FFI::cdef ()`).
 
-- Add support for `FFI_CWD` define to specify the libraries working directory.
+- Add support for `FFI_LD` define to specify the libraries working directory.
 
 The follow header code should work, as in the case of loading from using 
 `FFI::load()`, and using `FFI::cdef()` methods:
 
 ```c
-#define FFI_LIB "../bin/example.so"
-#define FFI_CWD "../bin"
 #define FFI_SCOPE "example"
+#define FFI_LIB   "../bin/example.so"
+#define FFI_LD    "../bin"
 
 // c-headers code
 // ...
@@ -101,7 +101,7 @@ must to be ignored.
 
 ## Miscellaneous
 
-### CWD And Multithreading Environment (ZTS)
+### Library Directory And Multithreading Environment (ZTS)
 
 Specifying the working directory of libraries, is a global operation 
 that affects all threads. 
@@ -140,6 +140,6 @@ The features discussed in the following are not part of this proposal.
 
 Three votes expected:
 
-- Add support for `FFI_CWD` define: Simple yes/no vote.
+- Add support for `FFI_LD` define: Simple yes/no vote.
 - Add support for defines in all methods of loading defines: Simple yes/no vote.
 - Add options support: Simple yes/no vote.
