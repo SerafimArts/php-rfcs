@@ -46,7 +46,7 @@ It is proposed to solve these problems.
 ### Allow C-Defines In Any Cases
 
 - Add support for `FFI_LIB` and` FFI_SCOPE` defines in each of the methods 
-(i.e. `FFI::load()` and `FFI::cdef ()`).
+(i.e. `FFI::load()` and `FFI::cdef()`).
 
 - Add support for `FFI_LIB_DIR` define to specify the libraries working directory.
 
