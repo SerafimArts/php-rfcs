@@ -87,14 +87,14 @@ Options may contain the following keys to specify libraries loading parameters:
 FFI::cdef('<...code...>', [
     'library'   => 'path/to/library.so',
     'scope'     => 'example',
-    'workdir'   => '/path/to/cwd'
+    'libdir'    => '/path/to/working_directory'
 ]);
 ```
 
 Where
 - `library` - Library file name
 - `scope` - Scope (identifier) of the library to load using `FFI::scope()`
-- `workdir` - Library working directory
+- `libdir` - Library working directory
 
 If these options are specified, the corresponding definition in the header file 
 must to be ignored.
@@ -103,9 +103,22 @@ must to be ignored.
 
 ### CWD And Multithreading Environment (ZTS)
 
-Specifying the working directory of libraries, for example via 
-`BOOL SetDllDirectoryA(LPCSTR lpPathName)` (kernel32.dll), is a global operation 
-that affects all threads. However, using mutexes for downloads in a ZTS 
+Specifying the working directory of libraries, is a global operation 
+that affects all threads. 
+
+For example:
+
+```c
+// Windows OS (from kernel32.dll)
+BOOL SetDllDirectoryA(LPCSTR lpPathName);
+// SetDllDirectoryA('path/to/libdir');
+
+// Linux OS
+int setenv(const char *name, const char *value, int overwrite);
+// setenv('LD_LIBRARY_PATH', 'path/to/libdir', 1);
+```
+
+However, using mutexes for downloads in a ZTS 
 environment should solve this problem.
 
 Since libraries in the working environment are mostly loaded through 
