@@ -134,6 +134,8 @@ None
 
 The features discussed in the following are not part of this proposal.
 
+// TBD
+
 ## Proposed Voting Choices
 
 Three votes expected:
