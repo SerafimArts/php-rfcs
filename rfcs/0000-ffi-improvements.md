@@ -126,8 +126,6 @@ preloading, after loading PHP extensions, waiting for loading in another thread
 should not affect performance in real projects. Since in runtime everything 
 will be loaded at the preloading stage.
 
-In other cases, well, delays in waiting for downloads cannot be avoided.
-
 ## Backwards Incompatible Changes
 
 None
