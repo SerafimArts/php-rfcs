@@ -28,16 +28,16 @@ string, and second of the physical file. But both approaches impose a number
 of limitations.
 
 In the case of `FFI::cdef()`:
-- **CAN** specify the library file (`*.so`, `*.dll`, etc) from the PHP code.
-- **CANNOT** specify "scope" from PHP code.
-- **CANNOT** declare `FFI_LIB` define to specify the library file from the header C code.
-- **CANNOT** declare `FFI_SCOPE` define from C header code.
+- Can specify the library file (`*.so`, `*.dll`, etc) from the PHP code.
+- Cannot specify "scope" from PHP code.
+- Cannot declare `FFI_LIB` define to specify the library file from the header C code.
+- Cannot declare `FFI_SCOPE` define from C header code.
 
 In the case of `FFI::load()`:
-- **CANNOT** specify library file from PHP code.
-- **CANNOT** specify "scope" from PHP code.
-- **CAN** declare `FFI_LIB` define to specify the library file from the C header code.
-- **CAN** declare `FFI_SCOPE` define to specify the library file from the C header code.
+- Cannot specify library file from PHP code.
+- Cannot specify "scope" from PHP code.
+- Can declare `FFI_LIB` define to specify the library file from the C header code.
+- Can declare `FFI_SCOPE` define to specify the library file from the C header code.
 
 ## Proposal
 
