@@ -75,7 +75,7 @@ makes sense to pass them to the parent class (if they exist) or throw an
 error if they don't exist.
 
 Below is a simple example of a similar vector based case that uses the 
-existing syntax:
+**existing syntax**:
 
 ```php
 class Vector2
@@ -99,7 +99,8 @@ class Vector3 extends Vector2
 }
 ```
 
-In the case of the new syntax, when the body is dropped, nothing should change.
+In the case of the **new syntax**, when the body is dropped, nothing 
+should change.
 
 ```php
 class Vector2
