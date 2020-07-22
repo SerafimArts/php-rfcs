@@ -1,4 +1,4 @@
- * Name: `shorter-constructor`
+ * Name: `Shorter Constructor`
  * Date: 2020-07-22
  * Author: Kirill Nesmeyanov <nesk@xakep.ru>
  * Proposed Version: PHP 8.1
