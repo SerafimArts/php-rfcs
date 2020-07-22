@@ -130,7 +130,8 @@ class Example
     public function __construct($value);
 }
 
-// Fatal error: Uncaught TypeError: Example::__construct(): Argument #1 ($value) must be promoted or Example class must contain a parent
+// Fatal error: Uncaught TypeError: 
+// Example::__construct(): Argument #1 ($value) must be promoted or Example class must contain a parent
 ```
 
 ### Lack Of Parent's Argument
@@ -146,7 +147,8 @@ class ChildClass extends ParentClass
     public function __construct(string $some, public string $any);
 }
 
-// Fatal error: Uncaught TypeError: ChildClass::__construct(): Argument #1 ($some) not defined in ParentClass::__construct() or must be promoted
+// Fatal error: Uncaught TypeError: 
+// ChildClass::__construct(): Argument #1 ($some) not defined in ParentClass::__construct() or must be promoted
 ```
 
 ## Backwards Incompatible Changes
